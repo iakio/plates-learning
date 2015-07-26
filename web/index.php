@@ -5,6 +5,7 @@ require_once __DIR__ .'/../vendor/autoload.php';
 $app = new Silex\Application();
 
 $app->get('/', function () {
-    return "Hello";
+    $templates = new League\Plates\Engine(__DIR__ . '/../templates');
+    return $templates->render('home', ['title' => 'Hello']);
 });
 $app->run();
