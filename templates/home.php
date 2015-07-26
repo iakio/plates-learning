@@ -1,3 +1,12 @@
 <!-- templates/home.php -->
-<link href="app.css" rel="stylesheet" type="text/css">
-<h1><?=$this->e($title)?></h1>
+<?php $this->layout('layouts/application', ['title' => 'Home']) ?>
+
+<div class="center hero-unit">
+    <h1>Welcome to the Sample App</h1>
+
+    <h2>
+        This is the home page for the
+        <a href="http://railstutorial.jp/">Ruby on Rails Tutorial</a>
+        sample application.
+    </h2>
+</div>
