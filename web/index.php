@@ -9,6 +9,6 @@ $app['view'] = $app->share(function () {
 });
 
 $app->get('/', function () use ($app) {
-    return $app['view']->render('home', ['title' => 'Hello']);
+    return $app['view']->render('home');
 });
 $app->run();
