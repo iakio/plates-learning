@@ -1,5 +1,5 @@
 <!-- templates/home.php -->
-<?php $this->layout('layouts/application', ['title' => 'Home']) ?>
+<?php $this->layout('layouts/application', ['title' => '']) ?>
 
 <div class="center hero-unit">
     <h1>Welcome to the Sample App</h1>

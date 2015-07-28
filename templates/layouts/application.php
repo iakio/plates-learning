@@ -2,7 +2,7 @@
 <!-- templates/layouts/application.php -->
 <html>
 <head>
-    <title><?=$title?></title>
+    <title><?=$this->full_title($title)?></title>
     <link rel="stylesheet" type="text/css" href="app.css">
     <?=$this->fetch('layouts/shim')?>
 </head>
