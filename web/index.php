@@ -2,19 +2,7 @@
 // web/index.php
 require_once __DIR__ .'/../vendor/autoload.php';
 
-$app = new Silex\Application();
-
-$app['view'] = $app->share(function () {
-    $engine = new League\Plates\Engine(__DIR__ . '/../templates');
-    $engine->registerFunction('full_title', function ($title) {
-        $base_title = 'Ruby on Rails Tutorial';
-        if (empty($title)) {
-            return $base_title;
-        }
-        return "$base_title | $title";
-    });
-    return $engine;
-});
+$app = new App();
 
 $app->get('/', function () use ($app) {
     return $app['view']->render('home');
