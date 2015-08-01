@@ -9,6 +9,7 @@ class App extends Silex\Application
         $app = $this;
         $app['view'] = $app->share(function () {
             $engine = new League\Plates\Engine(__DIR__ . '/../templates');
+            $engine->addData(['title' => '']);
             $engine->registerFunction('full_title', function ($title) {
                 $base_title = 'Ruby on Rails Tutorial';
                 if (empty($title)) {
