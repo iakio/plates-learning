@@ -2,7 +2,7 @@
 // web/index.php
 require_once __DIR__ .'/../vendor/autoload.php';
 
-$app = new App();
+$app = require_once __DIR__ .'/../src/app.php';
 
 $app->get('/', function () use ($app) {
     return $app['view']->render('home');
