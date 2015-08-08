@@ -17,6 +17,10 @@ module.exports = function (grunt) {
             phpunit: {
                 files: 'tests/**/*.php',
                 tasks: ['shell:phpunit']
+            },
+            sass: {
+                files: 'assets/sass/app.scss',
+                tasks: ['sass:dist']
             }
         }
     });
