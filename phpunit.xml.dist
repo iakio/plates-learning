@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<phpunit printerClass="iakio\phpunit\GrowlPrinter"
+         printerFile="vendor/iakio/phpunit-growlprinter/src/iakio/phpunit/GrowlPrinter.php">
+    <testsuite name="tests">
+        <directory>tests</directory>
+    </testsuite>
+</phpunit>

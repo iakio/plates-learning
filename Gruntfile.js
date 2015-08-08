@@ -10,7 +10,7 @@ module.exports = function (grunt) {
         },
         shell: {
             phpunit: {
-                command: path.normalize('vendor/bin/phpunit') + ' tests'
+                command: path.normalize('vendor/bin/phpunit')
             }
         },
         watch: {
