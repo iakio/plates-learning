@@ -1,6 +1,6 @@
 <?php
 $app = new Silex\Application();
-
+$app->register(new Silex\Provider\ServiceControllerServiceProvider());
 $app['view'] = $app->share(function () {
     $engine = new League\Plates\Engine(__DIR__ . '/../templates');
     $engine->addData(['title' => '']);
@@ -13,18 +13,13 @@ $app['view'] = $app->share(function () {
     });
     return $engine;
 });
+$app['static_pages.controller'] = function () use ($app) {
+    return new StaticPagesController($app['view']);
+};
 
-$app->get('/', function () use ($app) {
-    return $app['view']->render('home');
-});
-$app->get('help', function () use ($app) {
-    return $app['view']->render('help');
-});
-$app->get('about', function () use ($app) {
-    return $app['view']->render('about');
-});
-$app->get('contact', function () use ($app) {
-    return $app['view']->render('contact');
-});
+$app->get('/',       'static_pages.controller:home');
+$app->get('help',    'static_pages.controller:help');
+$app->get('about',   'static_pages.controller:about');
+$app->get('contact', 'static_pages.controller:contact');
 
 return $app;
