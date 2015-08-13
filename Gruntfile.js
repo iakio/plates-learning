@@ -11,21 +11,36 @@ module.exports = function (grunt) {
         shell: {
             phpunit: {
                 command: path.normalize('vendor/bin/phpunit')
-            }
-        },
-        watch: {
-            phpunit: {
-                files: 'tests/**/*.php',
-                tasks: ['shell:phpunit']
             },
-            sass: {
-                files: 'assets/sass/app.scss',
-                tasks: ['sass:dist']
+            smartrunner: {
+                file: "tests/StaticPagesTest.php",
+                command: function () {
+                    return "vendor\\bin\\smartrunner " +
+                        grunt.config.get('shell.smartrunner.file');
+                }
             }
-        }
+
+        },
+        esteWatch: {
+            options: {
+                dirs: [
+                    'assets/sass/**/',
+                    'src/**/',
+                    'templates/**/',
+                    'tests/**/',
+                ]
+            },
+            php: function (filePath) {
+                grunt.config("shell.smartrunner.file", filePath);
+                return ['shell:smartrunner'];
+            },
+            scss: function (filepath) {
+                return ['sass:dist'];
+            },
+        },
     });
+    grunt.loadNpmTasks('grunt-este-watch');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-shell');
-    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.registerTask('default', ['sass']);
 };

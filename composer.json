@@ -17,6 +17,13 @@
         "phpunit/phpunit": "^4.7",
         "symfony/browser-kit": "^2.7",
         "symfony/css-selector": "^2.7",
-        "iakio/phpunit-growlprinter": "^0.2.0"
-    }
+        "iakio/phpunit-growlprinter": "^0.2.0",
+        "iakio/phpunit-smartrunner": "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/iakio/phpunit-smartrunner"
+        }
+    ]
 }

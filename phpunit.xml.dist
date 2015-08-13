@@ -4,4 +4,7 @@
     <testsuite name="tests">
         <directory>tests</directory>
     </testsuite>
+    <listeners>
+        <listener class="iakio\phpunit\smartrunner\DependencyListener"></listener>
+    </listeners>
 </phpunit>
