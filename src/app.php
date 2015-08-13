@@ -1,6 +1,13 @@
 <?php
 $app = new Silex\Application();
 $app->register(new Silex\Provider\ServiceControllerServiceProvider());
+$app->register(new Silex\Provider\DoctrineServiceProvider(), [
+    'db.option' => [
+        'driver' => 'pdo_sqlite',
+        'path' => __DIR__ . '/../app.sqlite'
+    ]
+]);
+
 $app['view'] = $app->share(function () {
     $engine = new League\Plates\Engine(__DIR__ . '/../templates');
     $engine->addData(['title' => '']);
