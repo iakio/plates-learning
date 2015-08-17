@@ -2,7 +2,7 @@
 $app = new Silex\Application();
 $app->register(new Silex\Provider\ServiceControllerServiceProvider());
 $app->register(new Silex\Provider\DoctrineServiceProvider(), [
-    'db.option' => [
+    'db.options' => [
         'driver' => 'pdo_sqlite',
         'path' => __DIR__ . '/../app.sqlite'
     ]
