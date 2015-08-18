@@ -21,7 +21,7 @@ $app['view'] = $app->share(function () {
     return $engine;
 });
 $app['static_pages.controller'] = function () use ($app) {
-    return new StaticPagesController($app['view']);
+    return new app\StaticPagesController($app['view']);
 };
 
 $app->get('/',       'static_pages.controller:home');
